@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Apple-inspired with ISET blue/orange palette */
+    --background: 210 33% 97%;
+    --foreground: 210 11% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    --primary: 200 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 33% 95%;
+    --secondary-foreground: 210 11% 15%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 10% 46%;
+
+    --accent: 36 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 91%;
+    --input: 210 20% 91%;
+    --ring: 200 100% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 40%), hsl(195 100% 46%));
+    --gradient-accent: linear-gradient(135deg, hsl(36 100% 50%), hsl(33 100% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 100% 40% / 0.92), hsl(195 100% 46% / 0.88));
+    --shadow-soft: 0 2px 20px hsl(200 100% 40% / 0.06);
+    --shadow-card: 0 4px 30px hsl(210 20% 50% / 0.08);
+    --shadow-card-hover: 0 12px 40px hsl(200 100% 40% / 0.12);
+    --shadow-header: 0 1px 40px hsl(210 20% 50% / 0.08);
+    --glass-bg: hsl(0 0% 100% / 0.72);
+    --glass-border: hsl(0 0% 100% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 20% 6%;
+    --foreground: 210 20% 96%;
+    --card: 210 20% 8%;
+    --card-foreground: 210 20% 96%;
+    --popover: 210 20% 8%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 14%;
+    --secondary-foreground: 210 20% 96%;
+    --muted: 210 20% 14%;
+    --muted-foreground: 210 15% 60%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 96%;
+    --border: 210 20% 16%;
+    --input: 210 20% 16%;
+    --ring: 200 100% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    @apply text-foreground;
+  }
+}
+
+@layer components {
+  /* Section container */
+  .section-container {
+    @apply mx-auto w-full max-w-6xl px-6 py-24;
+  }
+
+  /* Section heading - Apple style */
+  .section-heading {
+    @apply text-center mb-16;
+  }
+
+  .section-heading h2 {
+    @apply text-4xl md:text-5xl font-semibold tracking-tight mb-4;
+  }
+
+  .section-heading p {
+    @apply text-lg text-muted-foreground max-w-2xl mx-auto;
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-2xl;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Fade in animation on scroll */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply inline-block px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300;
+    background: hsl(var(--primary) / 0.08);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.15);
+  }
+
+  .tag-pill:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
+  }
+
+  /* CTA button */
+  .cta-button {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300;
+    background: var(--gradient-accent);
+    color: hsl(var(--accent-foreground));
+    box-shadow: 0 4px 16px hsl(36 100% 50% / 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px hsl(36 100% 50% / 0.4);
+  }
+
+  .cta-button-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 16px hsl(200 100% 40% / 0.3);
+  }
+
+  .cta-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px hsl(200 100% 40% / 0.4);
+  }
+
+  /* Floating action button */
+  .fab {
+    @apply w-14 h-14 rounded-full flex items-center justify-content-center shadow-lg transition-all duration-300;
+  }
+
+  .fab:hover {
+    transform: scale(1.1) translateY(-3px);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
