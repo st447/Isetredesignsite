@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowLeft, Send } from "lucide-react";
 
 const Contact = () => {
   const { t, lang, setLang } = useLanguage();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
@@ -41,9 +43,9 @@ const Contact = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-card/80 backdrop-blur-xl border-b border-border shadow-sm">
         <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2 text-foreground font-semibold text-lg hover:text-primary transition-colors">
+          <button onClick={() => navigate("/")} className="flex items-center gap-2 text-foreground font-semibold text-lg hover:text-primary transition-colors">
             ISET Integration
-          </a>
+          </button>
           <div className="flex rounded-full overflow-hidden border border-primary/20">
             <button onClick={() => setLang("en")} className={`px-3 py-1.5 text-xs font-semibold transition-all ${lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>EN</button>
             <button onClick={() => setLang("fr")} className={`px-3 py-1.5 text-xs font-semibold transition-all ${lang === "fr" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>FR</button>
@@ -201,15 +203,15 @@ const Contact = () => {
               </div>
             </a>
 
-            <a href="/"
-              className="glass-card p-5 flex items-center gap-4 hover:border-primary/50 transition-colors group mt-2">
+            <button onClick={() => navigate("/")}
+              className="glass-card p-5 flex items-center gap-4 hover:border-primary/50 transition-colors group w-full mt-2">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
                 <ArrowLeft className="w-6 h-6" />
               </div>
               <div>
                 <p className="font-semibold text-sm">{t("Back to Home", "Retour à l'Accueil")}</p>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </main>
