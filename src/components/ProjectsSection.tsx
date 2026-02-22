@@ -2,24 +2,27 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Star } from "lucide-react";
 
-// Use local assets instead of external Unsplash links
+import hero7 from "../assets/hero7.jpg";
+import hero8 from "../assets/hero8.jpg";
+import hero9 from "../assets/hero9.jpg";
+
 const projects = [
   {
-    img: "@/assets/hero7.jpg",
+    img: hero7,
     en: "Corporate Office Security",
     fr: "Sécurité Bureau Corporate",
     descEn: "Complete CCTV and access control installation for a 5-story office building in N'Djamena.",
     descFr: "Installation complète de CCTV et contrôle d'accès pour un immeuble de 5 étages à N'Djamena.",
   },
   {
-    img: "@/assets/hero8.jpg",
+    img: hero8,
     en: "Residential Solar System",
     fr: "Système Solaire Résidentiel",
     descEn: "10kW solar installation with battery backup for a luxury villa.",
     descFr: "Installation solaire de 10 kW avec batterie de secours pour une villa de luxe.",
   },
   {
-    img: "@/assets/hero9.jpg",
+    img: hero9,
     en: "Warehouse Security",
     fr: "Sécurité Entrepôt",
     descEn: "Fire alarm and GPS tracking system for a logistics warehouse.",

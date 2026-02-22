@@ -1,23 +1,30 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+import hero1 from "../assets/hero1.jpg";
+import hero2 from "../assets/hero2.jpg";
+import hero3 from "../assets/hero3.jpg";
+import hero4 from "../assets/hero4.jpg";
+import hero5 from "../assets/hero5.jpg";
+import hero6 from "../assets/hero6.jpg";
+
 const solarProducts = [
   {
-    img: "@/assets/hero1.jpg",
+    img: hero1,
     en: "Solar Panels",
     fr: "Panneaux Solaires",
     descEn: "High-efficiency photovoltaic panels adapted to Chad's climate for maximum energy output.",
     descFr: "Panneaux photovoltaïques haute efficacité adaptés au climat tchadien.",
   },
   {
-    img: "@/assets/hero2.jpg",
+    img: hero2,
     en: "Hybrid Inverters",
     fr: "Onduleurs Hybrides",
     descEn: "Off-grid and on-grid inverter systems for reliable and continuous power supply.",
     descFr: "Systèmes d'onduleurs hors-réseau et sur réseau pour une alimentation fiable.",
   },
   {
-    img: "@/assets/hero3.jpg",
+    img: hero3,
     en: "Energy Storage",
     fr: "Stockage d'Énergie",
     descEn: "Advanced battery solutions ensuring power availability day and night.",
@@ -27,21 +34,21 @@ const solarProducts = [
 
 const securityProducts = [
   {
-    img: "@/assets/hero4.jpg",
+    img: hero4,
     en: "CCTV Surveillance",
     fr: "Vidéosurveillance CCTV",
     descEn: "HD remote surveillance systems for complete monitoring of your premises.",
     descFr: "Systèmes de surveillance HD à distance pour une surveillance complète.",
   },
   {
-    img: "@/assets/hero5.jpg",
+    img: hero5,
     en: "Access Control",
     fr: "Contrôle d'Accès",
     descEn: "RFID and biometric access systems to secure and manage entry points.",
     descFr: "Systèmes d'accès RFID et biométriques pour sécuriser les points d'entrée.",
   },
   {
-    img: "@/assets/hero6.jpg",
+    img: hero6,
     en: "Fire Detection",
     fr: "Détection Incendie",
     descEn: "Early fire detection and alerting systems to protect lives and property.",
