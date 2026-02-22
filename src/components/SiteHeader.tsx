@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.jpg";
+import logo from "../assets/logo.jpg";
 
 const navItems = [
-  { href: "#about", en: "About", fr: "À propos" },
-  { href: "#services", en: "Services", fr: "Services" },
-  { href: "#solutions", en: "Solutions", fr: "Solutions" },
-  { href: "#products", en: "Products", fr: "Produits" },
-  { href: "#projects", en: "Projects", fr: "Projets" },
-  { href: "#faq", en: "FAQ", fr: "FAQ" },
-  { href: "#team", en: "Team", fr: "Équipe" },
+  { id: "about", en: "About", fr: "À propos" },
+  { id: "services", en: "Services", fr: "Services" },
+  { id: "solutions", en: "Solutions", fr: "Solutions" },
+  { id: "products", en: "Products", fr: "Produits" },
+  { id: "projects", en: "Projects", fr: "Projets" },
+  { id: "faq", en: "FAQ", fr: "FAQ" },
+  { id: "team", en: "Team", fr: "Équipe" },
 ];
+
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
 
 const SiteHeader = () => {
   const { lang, setLang, t } = useLanguage();
@@ -33,15 +38,14 @@ const SiteHeader = () => {
       }`}
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
-        
+
         {/* Brand */}
-        <a href="#" className="flex items-center gap-3 group">
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group">
           <img
             src={logo}
             alt="ISET Logo"
             className="h-10 w-auto object-contain"
           />
-
           <span
             className={`font-semibold text-lg tracking-tight transition-colors duration-300 ${
               scrolled ? "text-foreground" : "text-primary-foreground"
@@ -49,14 +53,14 @@ const SiteHeader = () => {
           >
             ISET Integration
           </span>
-        </a>
+        </button>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
               className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
                 scrolled
                   ? "text-muted-foreground"
@@ -64,7 +68,7 @@ const SiteHeader = () => {
               }`}
             >
               {t(item.en, item.fr)}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -83,7 +87,6 @@ const SiteHeader = () => {
             >
               EN
             </button>
-
             <button
               onClick={() => setLang("fr")}
               className={`px-3 py-1.5 text-xs font-semibold transition-all duration-300 ${
@@ -115,14 +118,13 @@ const SiteHeader = () => {
         <div className="lg:hidden absolute top-full left-0 right-0 bg-card/95 backdrop-blur-xl border-b border-border shadow-lg animate-slide-up">
           <nav className="flex flex-col py-4 px-6 gap-1">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border-b border-border/50 last:border-0"
+              <button
+                key={item.id}
+                onClick={() => { scrollToSection(item.id); setMenuOpen(false); }}
+                className="py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border-b border-border/50 last:border-0 text-left"
               >
                 {t(item.en, item.fr)}
-              </a>
+              </button>
             ))}
           </nav>
         </div>

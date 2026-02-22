@@ -2,7 +2,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Shield, Sun, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-// Import all hero images
 import hero1 from "../assets/hero1.jpg";
 import hero2 from "../assets/hero2.jpg";
 import hero3 from "../assets/hero3.jpg";
@@ -24,8 +23,13 @@ const images = [
   hero1, hero2, hero3, hero4,
   hero5, hero6, hero7, hero8,
   hero9, hero10, hero11, hero12,
-  hero13, hero14, hero15, hero16
+  hero13, hero14, hero15, hero16,
 ];
+
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -34,11 +38,9 @@ const Hero = () => {
 
   useEffect(() => {
     setLoaded(true);
-
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 4000); // change every 4 seconds
-
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -57,8 +59,6 @@ const Hero = () => {
             }`}
           />
         ))}
-
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
       </div>
 
@@ -95,13 +95,13 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#solutions" className="cta-button">
+              <button onClick={() => scrollToSection("solutions")} className="cta-button">
                 {t("Our Solutions", "Nos Solutions")}
                 <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="#about" className="cta-button-primary">
+              </button>
+              <button onClick={() => scrollToSection("about")} className="cta-button-primary">
                 {t("Learn More", "En Savoir Plus")}
-              </a>
+              </button>
             </div>
           </div>
 
