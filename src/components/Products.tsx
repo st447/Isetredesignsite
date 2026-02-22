@@ -3,28 +3,28 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import hero1 from "../assets/hero1.jpg";
 import hero2 from "../assets/hero2.jpg";
-import hero3 from "../assets/hero3.jpg";
+import stockagedenergie from "../assets/hero3.jpg";
 import hero4 from "../assets/hero4.jpg";
 import hero5 from "../assets/hero5.jpg";
 import hero6 from "../assets/hero6.jpg";
 
 const solarProducts = [
   {
-    img: hero1,
+    img: hero2,
     en: "Solar Panels",
     fr: "Panneaux Solaires",
     descEn: "High-efficiency photovoltaic panels adapted to Chad's climate for maximum energy output.",
     descFr: "Panneaux photovoltaïques haute efficacité adaptés au climat tchadien.",
   },
   {
-    img: hero2,
+    img: hero1,
     en: "Hybrid Inverters",
     fr: "Onduleurs Hybrides",
     descEn: "Off-grid and on-grid inverter systems for reliable and continuous power supply.",
     descFr: "Systèmes d'onduleurs hors-réseau et sur réseau pour une alimentation fiable.",
   },
   {
-    img: hero3,
+    img: stockagedenergie,
     en: "Energy Storage",
     fr: "Stockage d'Énergie",
     descEn: "Advanced battery solutions ensuring power availability day and night.",

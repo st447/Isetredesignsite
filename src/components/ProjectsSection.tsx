@@ -3,8 +3,8 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Star } from "lucide-react";
 
 import hero7 from "../assets/hero7.jpg";
-import hero8 from "../assets/hero8.jpg";
-import hero9 from "../assets/hero9.jpg";
+import panresident from "../assets/hero8.jpg";
+import securityentrepot from "../assets/hero9.jpg";
 
 const projects = [
   {
@@ -15,14 +15,14 @@ const projects = [
     descFr: "Installation complète de CCTV et contrôle d'accès pour un immeuble de 5 étages à N'Djamena.",
   },
   {
-    img: hero8,
+    img: panresident,
     en: "Residential Solar System",
     fr: "Système Solaire Résidentiel",
     descEn: "10kW solar installation with battery backup for a luxury villa.",
     descFr: "Installation solaire de 10 kW avec batterie de secours pour une villa de luxe.",
   },
   {
-    img: hero9,
+    img: securityentrepot,
     en: "Warehouse Security",
     fr: "Sécurité Entrepôt",
     descEn: "Fire alarm and GPS tracking system for a logistics warehouse.",
