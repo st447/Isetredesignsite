@@ -80,11 +80,13 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-primary-foreground leading-[1.05] mb-6">
-              {t("Smart Security.", "Sécurité Intelligente.")}
+              ISET
               <br />
               <span className="text-accent">
                 {t("Solar Energy.", "Énergie Solaire.")}
               </span>
+              <br />
+              {t("Electronic Security.", "Sécurité Électronique.")}
             </h1>
 
             <p className="text-lg md:text-xl text-primary-foreground/70 max-w-xl mb-10 leading-relaxed">

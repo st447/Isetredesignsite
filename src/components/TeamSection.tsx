@@ -3,8 +3,24 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Mail, Phone } from "lucide-react";
 
 const team = [
-  { initial: "I", en: "Technical Engineering Team", fr: "Équipe Technique d'Ingénierie", roleEn: "Solar & Electronic Security Engineers", roleFr: "Ingénieurs Solaire & Sécurité Électronique", email: "info@isetintegration.com", phone: "+235 85 77 73 86" },
-  { initial: "T", en: "Installation & Support Team", fr: "Équipe Installation & Support", roleEn: "Certified Technicians", roleFr: "Techniciens Certifiés", email: "support@isetintegration.com", phone: "+235 68 37 61 10" },
+  {
+    initial: "I",
+    en: "Technical Engineering Team",
+    fr: "Équipe Technique d'Ingénierie",
+    roleEn: "Solar & Electronic Security Engineers",
+    roleFr: "Ingénieurs Solaire & Sécurité Électronique",
+    email: "isetinfo@isetintegrationsa.com",
+    phone: "+235 85 77 73 86",
+  },
+  {
+    initial: "H",
+    en: "Help Desk",
+    fr: "Help Desk",
+    roleEn: "Responsable materiel et de vente / Certified Technicians",
+    roleFr: "Responsable matériel et de vente / Techniciens Certifiés",
+    email: "makki@isetintegrationsa.com",
+    phone: "+235 61 69 40 94",
+  },
 ];
 
 const TeamSection = () => {

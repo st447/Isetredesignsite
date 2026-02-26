@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Star } from "lucide-react";
 
 import hero7 from "../assets/hero7.jpg";
 import panresident from "../assets/hero8.jpg";
@@ -30,24 +29,6 @@ const projects = [
   },
 ];
 
-const testimonials = [
-  {
-    text: "Excellent service! The team was professional and the installation was flawless. Highly recommended!",
-    author: "Mohammed A.",
-    role: { en: "Business Owner", fr: "Propriétaire d'entreprise" },
-  },
-  {
-    text: "Our solar system has been working perfectly for over a year. Great quality and support!",
-    author: "Sarah K.",
-    role: { en: "Homeowner", fr: "Propriétaire" },
-  },
-  {
-    text: "The security system gives us peace of mind. The 24/7 monitoring is very reliable.",
-    author: "Jean-Paul M.",
-    role: { en: "Property Manager", fr: "Gestionnaire immobilier" },
-  },
-];
-
 const ProjectsSection = () => {
   const { t } = useLanguage();
   const { ref, visible } = useScrollAnimation();
@@ -56,11 +37,11 @@ const ProjectsSection = () => {
     <section id="projects" className="bg-card">
       <div ref={ref} className={`section-container fade-up ${visible ? "visible" : ""}`}>
         <div className="section-heading">
-          <h2>{t("Projects & Testimonials", "Projets & Témoignages")}</h2>
+          <h2>{t("Our Projects", "Nos Projets")}</h2>
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
             <div key={i} className="glass-card overflow-hidden group">
               <div className="overflow-hidden aspect-[3/2]">
@@ -75,27 +56,6 @@ const ProjectsSection = () => {
                 <h3 className="text-lg font-semibold mb-2">{t(p.en, p.fr)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(p.descEn, p.descFr)}</p>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((tm, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-8 text-primary-foreground"
-              style={{ background: "var(--gradient-primary)" }}
-            >
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-5 h-5 fill-accent text-accent" />
-                ))}
-              </div>
-              <p className="italic text-primary-foreground/90 leading-relaxed mb-6">"{tm.text}"</p>
-              <p className="font-semibold text-sm text-right">
-                — {tm.author}, {t(tm.role.en, tm.role.fr)}
-              </p>
             </div>
           ))}
         </div>
