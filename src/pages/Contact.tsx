@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowLeft, Send } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Contact = () => {
   const { t, lang, setLang } = useLanguage();
@@ -43,8 +44,9 @@ const Contact = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-card/80 backdrop-blur-xl border-b border-border shadow-sm">
         <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
-          <button onClick={() => navigate("/")} className="flex items-center gap-2 text-foreground font-semibold text-lg hover:text-primary transition-colors">
-            ISET Integration
+          <button onClick={() => navigate("/")} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src={logo} alt="ISET Logo" className="h-10 w-auto object-contain" />
+            <span className="font-semibold text-lg text-foreground tracking-tight">ISET Integration</span>
           </button>
           <div className="flex rounded-full overflow-hidden border border-primary/20">
             <button onClick={() => setLang("en")} className={`px-3 py-1.5 text-xs font-semibold transition-all ${lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>EN</button>
