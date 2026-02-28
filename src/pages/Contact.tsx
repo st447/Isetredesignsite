@@ -46,7 +46,7 @@ const Contact = () => {
         <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
           <button onClick={() => navigate("/")} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img src={logo} alt="ISET Logo" className="h-10 w-auto object-contain" />
-            <span className="font-semibold text-lg text-foreground tracking-tight">ISET Integration</span>
+            <span className="font-bold text-2xl text-foreground tracking-tight">ISET Integration</span>
           </button>
           <div className="flex rounded-full overflow-hidden border border-primary/20">
             <button onClick={() => setLang("en")} className={`px-3 py-1.5 text-xs font-semibold transition-all ${lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>EN</button>

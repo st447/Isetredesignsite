@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpg";
 
 const navItems = [
   { id: "about", en: "About", fr: "À propos" },
@@ -44,7 +44,7 @@ const SiteHeader = () => {
         {/* Brand */}
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group">
           <img src={logo} alt="ISET Logo" className="h-10 w-auto object-contain" />
-          <span className={`font-semibold text-lg tracking-tight transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
+          <span className={`font-bold text-2xl tracking-tight transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
             ISET Integration
           </span>
         </button>
